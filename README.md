@@ -15,7 +15,8 @@ Um caderno digital estático para publicar no GitHub Pages.
 - Cores de caneta predefinidas e seletor de qualquer cor.
 - Negrito, itálico, sublinhado e marca-texto.
 - Busca, contador de palavras/caracteres e salvamento automático.
-- Exportação/importação de backup JSON.
+- Anexar imagens às páginas; imagens grandes são redimensionadas para economizar espaço.
+- Exportação/importação de backup JSON (inclui as imagens anexadas).
 
 ## Importante sobre salvamento
-As anotações ficam salvas no armazenamento local do navegador e permanecem no mesmo navegador/dispositivo. Elas **não são enviadas automaticamente para o GitHub** e não sincronizam entre dispositivos. Use **Exportar backup** regularmente e guarde o arquivo em local seguro. Para sincronização entre dispositivos seria necessário adicionar um serviço de conta/banco de dados.
+As anotações e imagens ficam salvas no armazenamento local do navegador e permanecem no mesmo navegador/dispositivo. Imagens aumentam o uso de espaço; prefira arquivos menores. Elas **não são enviadas automaticamente para o GitHub** e não sincronizam entre dispositivos. Use **Exportar backup** regularmente e guarde o arquivo em local seguro. Para sincronização entre dispositivos seria necessário adicionar um serviço de conta/banco de dados.
