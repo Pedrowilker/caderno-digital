@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caderno Digital</title>
+<style>
+:root{--ink:#243047;--paper:#fffdf7;--line:#dce7f2;--accent:#6558d3;--bg:#eef1f7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#263247;font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer;border:1px solid #d8ddea;background:white;border-radius:10px;padding:9px 12px;color:#29334a}button:hover{background:#f2f4ff;border-color:#aaa6ee}
+.app{min-height:100vh;display:grid;grid-template-columns:260px 1fr}.sidebar{background:#fff;border-right:1px solid #e1e5ee;padding:20px 15px;display:flex;flex-direction:column;gap:14px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;padding:5px 8px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#7568e8,#48b8c6);display:grid;place-items:center;color:white;font-size:22px}.muted{color:#7d8799;font-size:12px}.section-title{display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:.08em;color:#8790a1;font-weight:800;margin-top:8px}.subjects{display:flex;flex-direction:column;gap:5px}.subject{display:flex;align-items:center;gap:9px;text-align:left;border:0;background:transparent;width:100%;padding:10px;border-radius:10px}.subject.active{background:#efedff;color:#5144c3;font-weight:700}.subject .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}.subject .count{margin-left:auto;color:#8c94a5;font-size:12px}.side-bottom{margin-top:auto;display:grid;gap:8px}.main{min-width:0;padding:22px clamp(12px,3vw,38px) 35px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}.crumb{font-size:13px;color:#8a91a1}.title-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.title-row h1{font-size:25px;margin:3px 0 0}.tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.toolgroup{display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0e4ed;padding:5px;border-radius:12px}.color{width:25px;height:25px;padding:0;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #d2d7e2}.color.selected{box-shadow:0 0 0 2px #31394c}.color-input{width:31px;height:31px;border:0;padding:0;background:transparent}.paper-wrap{max-width:1100px;margin:0 auto;position:relative}.paper{position:relative;background:var(--paper);min-height:calc(100vh - 205px);border-radius:8px 16px 16px 8px;box-shadow:0 8px 30px #34415c12,0 1px 3px #34415c12;border-left:7px solid #d8d2c5;overflow:hidden}.paper:before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--line) 32px);opacity:.8}.paper:after{content:"";position:absolute;left:56px;top:0;bottom:0;width:1px;background:#f1b9bd;opacity:.8;pointer-events:none}.paper-head{position:relative;z-index:1;padding:20px 28px 6px 76px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}.paper-head input{border:0;background:transparent;font-size:17px;font-weight:750;outline:none;min-width:180px;flex:1;color:#3b4558}.page-label{font-size:12px;color:#8a92a1}.editor{position:relative;z-index:1;width:100%;min-height:calc(100vh - 280px);padding:8px 30px 35px 76px;outline:none;white-space:pre-wrap;overflow-wrap:anywhere;line-height:32px;color:var(--ink);font-family:"Segoe UI",system-ui,sans-serif;font-size:16px;caret-color:var(--accent)}.editor:empty:before{content:"Comece a escrever suas anotações aqui...";color:#a4a8b1}.status{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:12px 3px;color:#858d9e;font-size:12px}.page-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px}.page-controls strong{font-size:13px;color:#697286}.search{width:100%;border:1px solid #e0e4ed;background:#f8f9fc;border-radius:10px;padding:10px 12px;outline:none}.search:focus{border-color:#8d83e8}.mobile-menu{display:none}.notice{background:#fff7df;border:1px solid #f2df9c;padding:10px 12px;border-radius:10px;font-size:12px;color:#79601d}.modal-backdrop{position:fixed;inset:0;background:#1d274766;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal{background:white;border-radius:16px;padding:20px;width:min(440px,100%);box-shadow:0 20px 70px #1114}.modal h2{margin:0 0 14px}.modal input{width:100%;padding:10px;border:1px solid #d9deea;border-radius:9px;margin:6px 0 12px}.modal-actions{display:flex;justify-content:flex-end;gap:8px}.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.primary:hover{background:#5145bc;color:white}.danger{color:#b33a4a}.small{font-size:12px}
+@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{display:none}.sidebar.open{display:flex;position:fixed;inset:0 auto 0 0;width:min(290px,85vw);z-index:20;box-shadow:0 0 0 100vmax #1b234766}.mobile-menu{display:inline-block}.main{padding:14px 10px 25px}.topbar{margin-bottom:12px}.title-row h1{font-size:21px}.paper{min-height:70vh}.editor{min-height:60vh;padding-left:54px;padding-right:16px;font-size:15px}.paper:after{left:39px}.paper-head{padding-left:54px;padding-right:16px}.tools{width:100%}.toolgroup{flex-wrap:wrap}.notice{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><span class="logo">✎</span><span>Caderno<span style="color:#6b5ce7">+</span><div class="muted" style="font-weight:500">seu espaço de ideias</div></span></div>
+  <input class="search" id="search" placeholder="⌕  Buscar nas anotações…">
+  <div class="section-title"><span>MINHAS MATÉRIAS</span><button id="addSubject" title="Nova matéria" style="padding:3px 9px">＋</button></div>
+  <nav class="subjects" id="subjects"></nav>
+  <div class="side-bottom">
+    <div class="notice">🔒 Suas anotações são salvas automaticamente neste navegador. Exporte um backup para não perder seus dados.</div>
+    <button id="exportBtn">⇩ Exportar backup</button>
+    <button id="importBtn">⇧ Importar backup</button><input type="file" id="importFile" accept="application/json" hidden>
+    <button id="newPageBtn" class="primary">＋ Nova página</button>
+  </div>
+</aside>
+<main class="main">
+  <div class="topbar">
+    <button class="mobile-menu" id="menuBtn">☰ Matérias</button>
+    <div><div class="crumb">MEU CADERNO / <span id="crumbSubject">GERAL</span></div><div class="title-row"><h1 id="subjectTitle">Geral</h1><span class="muted" id="saveLabel">Salvo localmente</span></div></div>
+    <div class="tools">
+      <div class="toolgroup" title="Cores de caneta">
+        <button class="color selected" data-color="#243047" style="background:#243047" aria-label="Preto azulado"></button>
+        <button class="color" data-color="#111111" style="background:#111" aria-label="Preto"></button>
+        <button class="color" data-color="#d83b45" style="background:#d83b45" aria-label="Vermelho"></button>
+        <button class="color" data-color="#e77b25" style="background:#e77b25" aria-label="Laranja"></button>
+        <button class="color" data-color="#e0b323" style="background:#e0b323" aria-label="Amarelo"></button>
+        <button class="color" data-color="#23864a" style="background:#23864a" aria-label="Verde"></button>
+        <button class="color" data-color="#169fa8" style="background:#169fa8" aria-label="Turquesa"></button>
+        <button class="color" data-color="#2878d0" style="background:#2878d0" aria-label="Azul"></button>
+        <button class="color" data-color="#6558d3" style="background:#6558d3" aria-label="Roxo"></button>
+        <button class="color" data-color="#d34d9b" style="background:#d34d9b" aria-label="Rosa"></button>
+        <input type="color" id="customColor" class="color-input" value="#243047" title="Escolher qualquer cor">
+      </div>
+      <div class="toolgroup"><button id="boldBtn" title="Negrito"><b>B</b></button><button id="italicBtn" title="Itálico"><i>I</i></button><button id="underlineBtn" title="Sublinhado"><u>U</u></button><button id="highlightBtn" title="Destacar texto">🖍</button></div>
+      <button id="renameSubject" title="Renomear matéria">✎</button>
+    </div>
+  </div>
+  <div class="paper-wrap">
+    <section class="paper">
+      <div class="paper-head"><input id="pageTitle" placeholder="Título da página"><span class="page-label" id="pageDate"></span></div>
+      <div id="editor" class="editor" contenteditable="true" spellcheck="true" aria-label="Área de escrita"></div>
+    </section>
+    <div class="status"><span id="wordCount">0 palavras · 0 caracteres</span><span>✓ Salvamento automático ativado</span></div>
+    <div class="page-controls"><button id="prevPage">← Anterior</button><strong id="pageIndicator">Página 1 de 1</strong><button id="nextPage">Próxima →</button><button id="deletePage" class="danger">Excluir</button></div>
+  </div>
+</main>
+</div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><h2 id="modalTitle">Nova matéria</h2><label for="modalInput" id="modalLabel">Nome</label><input id="modalInput" maxlength="60" placeholder="Ex.: Matemática"><div class="modal-actions"><button id="modalCancel">Cancelar</button><button id="modalConfirm" class="primary">Salvar</button></div></div></div>
+<script>
+(() => {
+const KEY='caderno-digital-v1';
+const defaultData={activeSubject:'geral',activePage:0,subjects:[{id:'geral',name:'Geral',color:'#6558d3',pages:[makePage('Minha primeira página')]}]};
+function makePage(title='Nova página'){return {title,content:'',created:new Date().toISOString(),updated:new Date().toISOString()}}
+let data;
+try{data=JSON.parse(localStorage.getItem(KEY))||defaultData}catch{data=defaultData}
+if(!data.subjects?.length)data=defaultData;
+let currentColor='#243047', modalMode='subject', searchTerm='';
+const $=id=>document.getElementById(id);
+const activeSubject=()=>data.subjects.find(s=>s.id===data.activeSubject)||data.subjects[0];
+const activePage=()=>{let s=activeSubject();if(!s.pages.length)s.pages.push(makePage());data.activePage=Math.max(0,Math.min(data.activePage,s.pages.length-1));return s.pages[data.activePage]};
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function save(){localStorage.setItem(KEY,JSON.stringify(data));$('saveLabel').textContent='Salvo às '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});updateCount()}
+function updateCount(){let t=$('editor').innerText||'';let words=t.trim()?t.trim().split(/\s+/).length:0;$('wordCount').textContent=words+' palavras · '+t.length+' caracteres'}
+function renderSubjects(){let nav=$('subjects');nav.innerHTML='';data.subjects.filter(s=>!searchTerm||s.name.toLowerCase().includes(searchTerm)||s.pages.some(p=>(p.title+' '+p.content.replace(/<[^>]*>/g,' ')).toLowerCase().includes(searchTerm))).forEach(s=>{let b=document.createElement('button');b.className='subject'+(s.id===data.activeSubject?' active':'');b.innerHTML=`<span class="dot" style="background:${s.color}"></span><span>${escapeHtml(s.name)}</span><span class="count">${s.pages.length}</span>`;b.onclick=()=>{capture();data.activeSubject=s.id;data.activePage=0;renderAll();$('sidebar').classList.remove('open')};nav.appendChild(b)})}
+function capture(){let p=activePage();p.title=$('pageTitle').value;p.content=$('editor').innerHTML;p.updated=new Date().toISOString()}
+function renderPage(){let s=activeSubject(),p=activePage();$('subjectTitle').textContent=s.name;$('crumbSubject').textContent=s.name.toUpperCase();$('pageTitle').value=p.title;$('editor').innerHTML=p.content;$('pageDate').textContent='Criada em '+new Date(p.created).toLocaleDateString('pt-BR');$('pageIndicator').textContent=`Página ${data.activePage+1} de ${s.pages.length}`;$('prevPage').disabled=data.activePage===0;$('nextPage').disabled=data.activePage>=s.pages.length-1;$('deletePage').disabled=s.pages.length===1;updateCount()}
+function renderAll(){renderSubjects();renderPage();save()}
+function newPage(){capture();let s=activeSubject();s.pages.splice(data.activePage+1,0,makePage());data.activePage++;renderAll();$('editor').focus()}
+function openModal(mode){modalMode=mode;$('modalTitle').textContent=mode==='subject'?'Criar matéria':'Renomear matéria';$('modalLabel').textContent='Nome da matéria';$('modalInput').value=mode==='rename'?activeSubject().name:'';$('modalBackdrop').style.display='flex';$('modalInput').focus()}
+function closeModal(){$('modalBackdrop').style.display='none'}
+$('addSubject').onclick=()=>openModal('subject');$('renameSubject').onclick=()=>openModal('rename');$('modalCancel').onclick=closeModal;$('modalBackdrop').onclick=e=>{if(e.target===$('modalBackdrop'))closeModal()};
+$('modalConfirm').onclick=()=>{let name=$('modalInput').value.trim();if(!name)return;capture();if(modalMode==='rename')activeSubject().name=name;else{let id='s'+Date.now();data.subjects.push({id,name,color:['#6558d3','#23864a','#d83b45','#2878d0','#d34d9b'][data.subjects.length%5],pages:[makePage()]});data.activeSubject=id;data.activePage=0}closeModal();renderAll()};
+$('modalInput').addEventListener('keydown',e=>{if(e.key==='Enter')$('modalConfirm').click();if(e.key==='Escape')closeModal()});
+$('newPageBtn').onclick=newPage;
+$('prevPage').onclick=()=>{capture();if(data.activePage>0)data.activePage--;renderAll()};
+$('nextPage').onclick=()=>{capture();if(data.activePage<activeSubject().pages.length-1)data.activePage++;renderAll()};
+$('deletePage').onclick=()=>{if(activeSubject().pages.length<=1)return;if(confirm('Excluir esta página permanentemente?')){activeSubject().pages.splice(data.activePage,1);data.activePage=Math.max(0,data.activePage-1);renderAll()}};
+$('editor').addEventListener('input',()=>{capture();save()});$('pageTitle').addEventListener('input',()=>{capture();save();$('pageIndicator').textContent=`Página ${data.activePage+1} de ${activeSubject().pages.length}`});
+$('search').addEventListener('input',e=>{searchTerm=e.target.value.toLowerCase().trim();renderSubjects()});
+document.querySelectorAll('.color').forEach(b=>b.onclick=()=>setColor(b.dataset.color,b));$('customColor').oninput=e=>setColor(e.target.value,null);
+function setColor(color,button){currentColor=color;document.querySelectorAll('.color').forEach(b=>b.classList.toggle('selected',b===button));$('customColor').value=color;$('editor').focus();document.execCommand('foreColor',false,color)}
+$('boldBtn').onclick=()=>{ $('editor').focus();document.execCommand('bold')};$('italicBtn').onclick=()=>{$('editor').focus();document.execCommand('italic')};$('underlineBtn').onclick=()=>{$('editor').focus();document.execCommand('underline')};$('highlightBtn').onclick=()=>{$('editor').focus();document.execCommand('hiliteColor',false,'#fff19a')};
+$('exportBtn').onclick=()=>{capture();save();let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='backup-caderno-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href)};
+$('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let imported=JSON.parse(await f.text());if(!Array.isArray(imported.subjects)||!imported.subjects.length)throw Error();if(confirm('Importar vai substituir as anotações atuais. Deseja continuar?')){data=imported;data.activeSubject=data.subjects[0].id;data.activePage=0;renderAll()}}catch{alert('Arquivo de backup inválido.')}e.target.value=''};
+$('menuBtn').onclick=()=>$('sidebar').classList.toggle('open');
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();capture();save()}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='n'){e.preventDefault();newPage()}});
+window.addEventListener('beforeunload',()=>{capture();save()});
+renderAll();
+})();
+</script>
+</body>
+</html>
