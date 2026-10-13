@@ -9,6 +9,8 @@
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:#263247;font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
 button,input,select{font:inherit}button{cursor:pointer;border:1px solid #d8ddea;background:white;border-radius:10px;padding:9px 12px;color:#29334a}button:hover{background:#f2f4ff;border-color:#aaa6ee}
 .app{min-height:100vh;display:grid;grid-template-columns:260px 1fr}.sidebar{background:#fff;border-right:1px solid #e1e5ee;padding:20px 15px;display:flex;flex-direction:column;gap:14px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;padding:5px 8px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#7568e8,#48b8c6);display:grid;place-items:center;color:white;font-size:22px}.muted{color:#7d8799;font-size:12px}.section-title{display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:.08em;color:#8790a1;font-weight:800;margin-top:8px}.subjects{display:flex;flex-direction:column;gap:5px}.subject{display:flex;align-items:center;gap:9px;text-align:left;border:0;background:transparent;width:100%;padding:10px;border-radius:10px}.subject.active{background:#efedff;color:#5144c3;font-weight:700}.subject .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}.subject .count{margin-left:auto;color:#8c94a5;font-size:12px}.side-bottom{margin-top:auto;display:grid;gap:8px}.main{min-width:0;padding:22px clamp(12px,3vw,38px) 35px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}.crumb{font-size:13px;color:#8a91a1}.title-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.title-row h1{font-size:25px;margin:3px 0 0}.tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.toolgroup{display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0e4ed;padding:5px;border-radius:12px}.color{width:25px;height:25px;padding:0;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #d2d7e2}.color.selected{box-shadow:0 0 0 2px #31394c}.color-input{width:31px;height:31px;border:0;padding:0;background:transparent}.paper-wrap{max-width:1100px;margin:0 auto;position:relative}.paper{position:relative;background:var(--paper);min-height:calc(100vh - 205px);border-radius:8px 16px 16px 8px;box-shadow:0 8px 30px #34415c12,0 1px 3px #34415c12;border-left:7px solid #d8d2c5;overflow:hidden}.paper:before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--line) 32px);opacity:.8}.paper:after{content:"";position:absolute;left:56px;top:0;bottom:0;width:1px;background:#f1b9bd;opacity:.8;pointer-events:none}.paper-head{position:relative;z-index:1;padding:20px 28px 6px 76px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}.paper-head input{border:0;background:transparent;font-size:17px;font-weight:750;outline:none;min-width:180px;flex:1;color:#3b4558}.page-label{font-size:12px;color:#8a92a1}.editor{position:relative;z-index:1;width:100%;min-height:calc(100vh - 280px);padding:8px 30px 35px 76px;outline:none;white-space:pre-wrap;overflow-wrap:anywhere;line-height:32px;color:var(--ink);font-family:"Segoe UI",system-ui,sans-serif;font-size:16px;caret-color:var(--accent)}.editor:empty:before{content:"Comece a escrever suas anotações aqui...";color:#a4a8b1}.status{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:12px 3px;color:#858d9e;font-size:12px}.page-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px}.page-controls strong{font-size:13px;color:#697286}.search{width:100%;border:1px solid #e0e4ed;background:#f8f9fc;border-radius:10px;padding:10px 12px;outline:none}.search:focus{border-color:#8d83e8}.mobile-menu{display:none}.notice{background:#fff7df;border:1px solid #f2df9c;padding:10px 12px;border-radius:10px;font-size:12px;color:#79601d}.modal-backdrop{position:fixed;inset:0;background:#1d274766;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal{background:white;border-radius:16px;padding:20px;width:min(440px,100%);box-shadow:0 20px 70px #1114}.modal h2{margin:0 0 14px}.modal input{width:100%;padding:10px;border:1px solid #d9deea;border-radius:9px;margin:6px 0 12px}.modal-actions{display:flex;justify-content:flex-end;gap:8px}.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.primary:hover{background:#5145bc;color:white}.danger{color:#b33a4a}.small{font-size:12px}
+.editor img{max-width:min(100%,680px);height:auto;display:block;margin:10px 0;border-radius:6px;box-shadow:0 2px 8px #26324718;cursor:pointer}
+.editor img:focus{outline:2px solid var(--accent)}
 @media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{display:none}.sidebar.open{display:flex;position:fixed;inset:0 auto 0 0;width:min(290px,85vw);z-index:20;box-shadow:0 0 0 100vmax #1b234766}.mobile-menu{display:inline-block}.main{padding:14px 10px 25px}.topbar{margin-bottom:12px}.title-row h1{font-size:21px}.paper{min-height:70vh}.editor{min-height:60vh;padding-left:54px;padding-right:16px;font-size:15px}.paper:after{left:39px}.paper-head{padding-left:54px;padding-right:16px}.tools{width:100%}.toolgroup{flex-wrap:wrap}.notice{font-size:11px}}
 </style>
 </head>
@@ -44,7 +46,7 @@ button,input,select{font:inherit}button{cursor:pointer;border:1px solid #d8ddea;
         <button class="color" data-color="#d34d9b" style="background:#d34d9b" aria-label="Rosa"></button>
         <input type="color" id="customColor" class="color-input" value="#243047" title="Escolher qualquer cor">
       </div>
-      <div class="toolgroup"><button id="boldBtn" title="Negrito"><b>B</b></button><button id="italicBtn" title="Itálico"><i>I</i></button><button id="underlineBtn" title="Sublinhado"><u>U</u></button><button id="highlightBtn" title="Destacar texto">🖍</button></div>
+      <div class="toolgroup"><button id="boldBtn" title="Negrito"><b>B</b></button><button id="italicBtn" title="Itálico"><i>I</i></button><button id="underlineBtn" title="Sublinhado"><u>U</u></button><button id="highlightBtn" title="Destacar texto">🖍</button><button id="imageBtn" title="Anexar imagem à página">▧ Imagem</button><input type="file" id="imageFile" accept="image/*" hidden></div>
       <button id="renameSubject" title="Renomear matéria">✎</button>
     </div>
   </div>
@@ -93,6 +95,43 @@ $('search').addEventListener('input',e=>{searchTerm=e.target.value.toLowerCase()
 document.querySelectorAll('.color').forEach(b=>b.onclick=()=>setColor(b.dataset.color,b));$('customColor').oninput=e=>setColor(e.target.value,null);
 function setColor(color,button){currentColor=color;document.querySelectorAll('.color').forEach(b=>b.classList.toggle('selected',b===button));$('customColor').value=color;$('editor').focus();document.execCommand('foreColor',false,color)}
 $('boldBtn').onclick=()=>{ $('editor').focus();document.execCommand('bold')};$('italicBtn').onclick=()=>{$('editor').focus();document.execCommand('italic')};$('underlineBtn').onclick=()=>{$('editor').focus();document.execCommand('underline')};$('highlightBtn').onclick=()=>{$('editor').focus();document.execCommand('hiliteColor',false,'#fff19a')};
+
+$('imageBtn').onclick=()=> $('imageFile').click();
+$('imageFile').onchange=async e=>{
+  const file=e.target.files[0]; if(!file)return;
+  if(!file.type.startsWith('image/')){alert('Escolha um arquivo de imagem.');e.target.value='';return;}
+  try{
+    const dataUrl=await new Promise((resolve,reject)=>{
+      const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file);
+    });
+    // Redimensiona imagens grandes para economizar espaço no armazenamento local.
+    const img=await new Promise((resolve,reject)=>{
+      const el=new Image();el.onload=()=>resolve(el);el.onerror=reject;el.src=dataUrl;
+    });
+    const maxSide=1600, scale=Math.min(1,maxSide/Math.max(img.naturalWidth,img.naturalHeight));
+    let finalUrl=dataUrl;
+    if(scale<1 || file.type==='image/png' || file.type==='image/webp'){
+      const canvas=document.createElement('canvas');
+      canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));
+      canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
+      const ctx=canvas.getContext('2d');ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);
+      finalUrl=canvas.toDataURL('image/jpeg',0.84);
+    }
+    $('editor').focus();
+    const image=document.createElement('img');
+    image.src=finalUrl;image.alt=file.name;image.title=file.name;image.style.maxWidth='100%';
+    const selection=window.getSelection();
+    if(selection && selection.rangeCount && $('editor').contains(selection.anchorNode)){
+      const range=selection.getRangeAt(0);range.deleteContents();range.insertNode(image);
+      const br=document.createElement('div');br.innerHTML='<br>';image.after(br);
+      range.setStartAfter(br);range.collapse(true);selection.removeAllRanges();selection.addRange(range);
+    }else{
+      $('editor').appendChild(image);$('editor').appendChild(document.createElement('br'));
+    }
+    capture();save();
+  }catch(err){alert('Não foi possível anexar essa imagem. Tente outro arquivo.');}
+  e.target.value='';
+};
 $('exportBtn').onclick=()=>{capture();save();let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='backup-caderno-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href)};
 $('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let imported=JSON.parse(await f.text());if(!Array.isArray(imported.subjects)||!imported.subjects.length)throw Error();if(confirm('Importar vai substituir as anotações atuais. Deseja continuar?')){data=imported;data.activeSubject=data.subjects[0].id;data.activePage=0;renderAll()}}catch{alert('Arquivo de backup inválido.')}e.target.value=''};
 $('menuBtn').onclick=()=>$('sidebar').classList.toggle('open');
